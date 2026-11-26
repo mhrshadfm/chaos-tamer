@@ -1,0 +1,38 @@
+{
+  "name": "chaos-tamer",
+  "version": "1.1.0",
+  "description": "Chaos Tamer by @mhrshadfm — Safe Instagram Following Pruner & Account Migration Hub.",
+  "author": "@mhrshadfm",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --config vite.sidepanel.config.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test tests/*.test.mjs",
+    "clean": "node scripts/clean.mjs",
+    "icons": "node scripts/generate-icons.mjs",
+    "icons:android": "node scripts/generate-android-icons.mjs",
+    "build": "node scripts/clean.mjs && node scripts/generate-icons.mjs && vite build --config vite.sidepanel.config.ts && vite build --config vite.background.config.ts && vite build --config vite.content.config.ts && node scripts/verify-dist.mjs",
+    "sync:android": "node scripts/sync-android-assets.mjs",
+    "build:android": "node scripts/build-android-apk.mjs",
+    "verify": "node scripts/verify-dist.mjs",
+    "package": "npm run build && node scripts/zip-dist.mjs"
+  },
+  "dependencies": {
+    "lucide-react": "^0.468.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.287",
+    "@types/node": "^22.10.2",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.5"
+  }
+}
